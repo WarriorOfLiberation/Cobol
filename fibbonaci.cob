@@ -1,9 +1,4 @@
-      ******************************************************************
-      * Author: Bryan Flood
-      * Date: 25/10/2018
-      * Purpose: Compute Fibonacci Numbers
-      * Tectonics: cobc
-      ******************************************************************
+
        IDENTIFICATION DIVISION.
        PROGRAM-ID. FIB.
        DATA DIVISION.
