@@ -1,0 +1,36 @@
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. KADANE-ALGORITHM.
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+           01 ARRAY-SIZE       PIC 9(02) VALUE 10.
+           01 NUM-ARRAY.
+               05 NUM-ELEMENT OCCURS 10 TIMES PIC S9(04) VALUE ZEROS.
+           01 MAX-SUM          PIC S9(04) VALUE 0.
+           01 CURRENT-SUM      PIC S9(04) VALUE 0.
+           01 I            PIC 9(02).
+           01 TEMP-VALUE       PIC S9(04).
+
+       PROCEDURE DIVISION.
+           MOVE  3 TO NUM-ELEMENT (1)
+           MOVE -2 TO NUM-ELEMENT (2)
+           MOVE  5 TO NUM-ELEMENT (3)
+           MOVE -1 TO NUM-ELEMENT (4)
+           MOVE  6 TO NUM-ELEMENT (5)
+           MOVE -3 TO NUM-ELEMENT (6)
+           MOVE  2 TO NUM-ELEMENT (7)
+           MOVE  4 TO NUM-ELEMENT (8)
+           MOVE -1 TO NUM-ELEMENT (9)
+           MOVE  3 TO NUM-ELEMENT (10)
+
+           MOVE 0 TO MAX-SUM
+           MOVE 0 TO CURRENT-SUM
+
+           PERFORM VARYING I FROM 1 BY 1 UNTIL I > ARRAY-SIZE
+               COMPUTE CURRENT-SUM = FUNCTION MAX (NUM-ELEMENT (I)
+               , CURRENT-SUM + NUM-ELEMENT (I))
+               COMPUTE MAX-SUM = FUNCTION MAX (MAX-SUM, CURRENT-SUM)
+           END-PERFORM
+
+           DISPLAY "Maximum contiguous subarray sum is " MAX-SUM
+
+           STOP RUN.
